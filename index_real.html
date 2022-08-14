@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style_real.css" />
+    <title>Momentum App</title>
+  </head>
+  <body>
+    <div id="weather">
+      <span></span>
+      <span></span>
+    </div>
+    <form id="login-form" class="hidden">
+      <input
+        required
+        maxlength="15"
+        type="text"
+        placeholder="What is your name?"
+      />
+
+      <!-- 그리고 위에 보면 input의 속성들 required 와 maxlength 등으로 js에서 구현한 함수를 완벽히 대체할 수 있다.
+    즉, html에서 할 수 있는건 html에서 하도록 하자-->
+      <input type="submit" value="Log In" />
+      <!-- html에서의 value 속성과 js에서의 value는 말하는 것이 다르다
+    여기서는 어떤 데이터인지 이름표를 나타내는 속성이며 즉 버튼에 쓰일 이름이며, js에서 value는 실제 input한 데이터를 뜻한다-->
+    </form>
+    <form id="logout-form" class="hidden">
+      <input type="submit" value="Log Out" />
+    </form>
+    <!-- html에서 input은 form 안에 있어야지만 클릭 또는 엔터 시 submit 된다. 
+그래서 코코아톡 챌린지 할 때 아무리 눌러도 submit이 되지 않았던거다. input이 form 안에 없어서..
+그리고 이렇게 submit 기능을 활용하면 굳이 js에서 click 이벤트를 넣어서 문장을 쓸 필요가 없다 
+그런데 input 값이 submit 되면 웹페이지는 새로고침된다. 즉 기존에 쓴게 다 사라진다. 
+그렇게 되면 js에서  input의 입력값을 받아 사용할 수 가 없다.-->
+    <h2 id="clock">00:00</h2>
+    <h1 id="greeting" class="hidden">...</h1>
+    <form id="todo-form">
+      <input type="text" placeholder="Write a To Do and Press Enter" required />
+    </form>
+    <ul id="todo-list"></ul>
+    <div id="quote">
+      <span></span>
+      <span></span>
+    </div>
+    <script src="js/greeting.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/backgrounds.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/weather.js"></script>
+  </body>
+</html>
