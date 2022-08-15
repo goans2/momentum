@@ -44,12 +44,14 @@ const logoutForm = document.querySelector("#logout-form");
 const greeting = document.querySelector("#greeting");
 
 const HIDDEN_CLASSNAME = "hidden";
+const PRESENT_CLASSNAME = "present";
 const USERNAME_KEY = "username";
 // 자주 사용하게 될 string의 경우 이렇게 변수화 시켜서 해야 나중에 헷갈리거나 오타의 위험이 적다
 
 function onLoginSubmit(event) {
   event.preventDefault();
   loginForm.classList.toggle(HIDDEN_CLASSNAME);
+  loginForm.classList.toggle(PRESENT_CLASSNAME);
   const username = loginInput.value;
   localStorage.setItem(USERNAME_KEY, username);
   //localStorage 알아보기
@@ -65,6 +67,7 @@ function onLoginSubmit(event) {
 function onLogout() {
   localStorage.removeItem(USERNAME_KEY);
   loginForm.classList.toggle(HIDDEN_CLASSNAME);
+  loginForm.classList.toggle(PRESENT_CLASSNAME);
 }
 
 logoutForm.addEventListener("submit", onLogout);
@@ -73,11 +76,13 @@ function paintGreetings() {
   const username = localStorage.getItem(USERNAME_KEY);
   greeting.innerText = `Hello ${username}`;
   greeting.classList.toggle(HIDDEN_CLASSNAME);
+  greeting.classList.toggle(PRESENT_CLASSNAME);
   //   //   greeting.innerText = "Hello " + username;
   //   // string을 결합시키는 방법은 위처럼 +로 결합해도 되지만,
   //   // ``안에 string을 넣고 변수를 ${}안에 넣는 방법으로도 할 수 있다.
   //   // 파이썬도 이런 유사한 방법이 있었고, 여기서 중요한건 꼭 `` 이걸 써야 한다는 거다. ~랑 같이 있는 문자다.
   logoutForm.classList.toggle(HIDDEN_CLASSNAME);
+  logoutForm.classList.toggle(PRESENT_CLASSNAME);
 }
 
 //evetListener 이해하기
@@ -100,6 +105,7 @@ const savedUsername = localStorage.getItem(USERNAME_KEY);
 
 if (savedUsername === null) {
   loginForm.classList.toggle(HIDDEN_CLASSNAME);
+  loginForm.classList.toggle(PRESENT_CLASSNAME);
   loginForm.addEventListener("submit", onLoginSubmit);
 } else {
   paintGreetings();

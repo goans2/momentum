@@ -21,7 +21,7 @@ function onGeoError() {
   alert("Can't find you. No weather for you.");
 }
 
-// navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
 
 // 날씨정보 추가하기1 - gps 값 받아오기
 // js에서는 gps 값을 받는 함수가 있다. navigator object에서 geolocation 그리고 getCurrentPosition 함수를 쓰고,
